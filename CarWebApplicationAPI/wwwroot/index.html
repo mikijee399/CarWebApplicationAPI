@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="bs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automobili</title>
+</head>
+<body>
+    <h1>Moji automobili</h1>
+
+    <form id="formaAuto">
+        <div>
+            <label for="marka">Marka:</label>
+            <input id="marka" type="text" required>
+        </div>
+
+        <div>
+            <label for="model">Model:</label>
+            <input id="model" type="text" required>
+        </div>
+
+        <div>
+            <label for="godiste">Godište:</label>
+            <input id="godiste" type="number"
+                   min="1900" max="2027" required>
+        </div>
+
+        <div>
+            <label for="cijena">Cijena (KM):</label>
+            <input id="cijena" type="number"
+                   min="0.01" step="0.01" required>
+        </div>
+
+        <button id="spremiDugme" type="submit">Dodaj auto</button>
+        <button id="odustaniDugme" type="button" hidden>
+            Odustani
+        </button>
+    </form>
+
+    <hr>
+
+    <button id="ucitajDugme" type="button">
+        Učitaj automobile
+    </button>
+
+    <p id="poruka" role="status"></p>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Marka</th>
+                <th>Model</th>
+                <th>Godište</th>
+                <th>Cijena (KM)</th>
+                <th>Akcije</th>
+            </tr>
+        </thead>
+        <tbody id="automobiliTabela"></tbody>
+    </table>
+
+    <script src="script.js"></script>
+</body>
+</html>

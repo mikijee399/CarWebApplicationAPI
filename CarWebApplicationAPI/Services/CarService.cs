@@ -64,11 +64,13 @@ namespace CarWebApplicationAPI.Services
             return await context.Cars
                 .Select(car => new CarDto
                 {
-                    Marka=car.Marka,
-                    Model=car.Model,
-                    Godiste=car.Godiste,
-                    Cijena=car.Cijena,
-                }).ToListAsync();
+                    Id = car.Id,
+                    Marka = car.Marka,
+                    Model = car.Model,
+                    Godiste = car.Godiste,
+                    Cijena = car.Cijena
+                })
+                .ToListAsync();
         }
 
         public async Task<CarDto?> UpdateCarAsync(int id, Car car)

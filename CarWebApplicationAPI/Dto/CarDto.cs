@@ -2,6 +2,7 @@
 {
     public class CarDto
     {
+        public int Id { get; set; }
         public string Marka { get; set; } = null!;
         public string Model { get; set; } = null!;
         public int Godiste { get; set; }
