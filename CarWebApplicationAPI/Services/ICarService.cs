@@ -8,7 +8,8 @@ namespace CarWebApplicationAPI.Services
         Task<List<CarDto>> GetCarsAsync();
         Task<CarDto> AddCarAsync(CarDto car);
         Task<CarDto?> GetCarByIdAsync(int id);
-        Task<CarDto?> UpdateCarAsync(int id, Car car);
+        Task<CarDto?> UpdateCarAsync(int id, CarDto car);
         Task<bool> DeleteCarAsync(int id);
+        Task<List<CarDto>> FindCarsAsync(string Car);
     }
 }

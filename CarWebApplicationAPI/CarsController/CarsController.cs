@@ -41,8 +41,17 @@ namespace CarWebApplicationAPI.CarsController
             return Ok(car);
         }
 
+        [HttpGet("pretraga")]
+        public async Task<ActionResult<List<CarDto>>> FindCar(
+       [FromQuery] string marka)
+        {
+            var automobili = await carService.FindCarsAsync(marka);
+
+            return Ok(automobili);
+        }
+
         [HttpPut("{id}")]
-        public async Task<ActionResult<CarDto>> UpdateCar(int id, Car car)
+        public async Task<ActionResult<CarDto>> UpdateCar(int id, CarDto car)
         {
             var result = await carService.UpdateCarAsync(id, car);
 

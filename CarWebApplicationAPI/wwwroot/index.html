@@ -11,12 +11,12 @@
     <form id="formaAuto">
         <div>
             <label for="marka">Marka:</label>
-            <input id="marka" type="text" required>
+            <input id="marka" type="text" maxlength="50" required>
         </div>
 
         <div>
             <label for="model">Model:</label>
-            <input id="model" type="text" required>
+            <input id="model" type="text" maxlength="50" required>
         </div>
 
         <div>
@@ -28,7 +28,7 @@
         <div>
             <label for="cijena">Cijena (KM):</label>
             <input id="cijena" type="number"
-                   min="0.01" step="0.01" required>
+                   min="0.01" max="1000000" step="0.01" required>
         </div>
 
         <button id="spremiDugme" type="submit">Dodaj auto</button>
@@ -39,9 +39,19 @@
 
     <hr>
 
-    <button id="ucitajDugme" type="button">
-        Učitaj automobile
-    </button>
+    <div>
+        <label for="pretragaMarka">Pretraga po marki:</label>
+        <input id="pretragaMarka" type="search"
+               placeholder="Npr. Audi">
+
+        <button id="pretraziDugme" type="button">
+            Pretraži
+        </button>
+
+        <button id="ucitajDugme" type="button">
+            Prikaži sve
+        </button>
+    </div>
 
     <p id="poruka" role="status"></p>
 

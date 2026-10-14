@@ -25,6 +25,7 @@ namespace CarWebApplicationAPI.Services
 
             return new CarDto
             {
+                Id = car.Id,
                 Marka = car.Marka,
                 Model = car.Model,
                 Godiste = car.Godiste,
@@ -46,13 +47,29 @@ namespace CarWebApplicationAPI.Services
             return true;
         }
 
+        public async Task<List<CarDto>> FindCarsAsync(string markica)
+        {
+            
+            return await context.Cars
+                .Where(x => x.Marka.Contains(markica))
+                .Select(x => new CarDto
+                {
+                    Id = x.Id,
+                    Marka = x.Marka,
+                    Model = x.Model,
+                    Godiste = x.Godiste,
+                    Cijena = x.Cijena
+                }).ToListAsync();
+        }
+
         public async Task<CarDto?> GetCarByIdAsync(int id)
         {
             return await context.Cars
                  .Where(car => car.Id == id)
                  .Select(car => new CarDto
                  {
-                     Marka=car.Marka,
+                     Id = car.Id,
+                     Marka =car.Marka,
                      Model = car.Model,
                      Godiste=car.Godiste,
                      Cijena=car.Cijena
@@ -73,7 +90,7 @@ namespace CarWebApplicationAPI.Services
                 .ToListAsync();
         }
 
-        public async Task<CarDto?> UpdateCarAsync(int id, Car car)
+        public async Task<CarDto?> UpdateCarAsync(int id, CarDto car)
         {
             var existingCar = await context.Cars.FindAsync(id);
 
@@ -89,6 +106,7 @@ namespace CarWebApplicationAPI.Services
 
             return new CarDto
             {
+                Id = existingCar.Id,
                 Marka = existingCar.Marka,
                 Model = existingCar.Model,
                 Godiste = existingCar.Godiste,
