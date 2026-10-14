@@ -8,5 +8,7 @@
         public string Model { get; set; } = string.Empty;
         public int Godiste { get; set; }
         public decimal Cijena { get; set; }
+        
+        public string? SlikaUrl { get; set; }
     }
 }

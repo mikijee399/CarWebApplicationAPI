@@ -20,5 +20,7 @@ namespace CarWebApplicationAPI.Dto
 
         [Range(1,1000000,ErrorMessage ="Cijena mora biti izmedju 1KM i 1 milion KM")]
         public decimal Cijena { get; set; }
+
+        public string? SlikaUrl { get; set; }
     }
 }
